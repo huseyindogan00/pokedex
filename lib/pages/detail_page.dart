@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pokedex/constants/constants.dart';
 import 'package:pokedex/constants/ui_helper.dart';
@@ -23,53 +22,51 @@ class DetailPage extends StatelessWidget {
   _buildLandScapeBody(BuildContext context) {
     return Scaffold(
       backgroundColor: UiHelper.getColorFromType(pokemonModel.type!.first),
-      body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: UiHelper.getIconPadding(),
-              child: IconButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                icon: const Icon(Icons.arrow_back_ios),
-                iconSize: 18.w,
-              ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: UiHelper.getIconPadding(),
+            child: IconButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              icon: const Icon(Icons.arrow_back_ios),
+              iconSize: 18.w,
             ),
-            Expanded(
-              child: Row(
-                children: [
-                  Expanded(
-                    flex: 3,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        PokeNameType(pokemonModel: pokemonModel),
-                        Expanded(
-                          child: Hero(
-                            tag: pokemonModel.id!,
-                            child: CachedNetworkImage(
-                              imageUrl: pokemonModel.img!,
-                              fit: BoxFit.fitHeight,
-                            ),
+          ),
+          Expanded(
+            child: Row(
+              children: [
+                Expanded(
+                  flex: 3,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      PokeNameType(pokemonModel: pokemonModel),
+                      Expanded(
+                        child: Hero(
+                          tag: pokemonModel.id!,
+                          child: CachedNetworkImage(
+                            imageUrl: pokemonModel.img!,
+                            fit: BoxFit.fitHeight,
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                  Expanded(
-                    flex: 5,
-                    child: Padding(
-                      padding: UiHelper.getDefaultPadding(),
-                      child: PokeInformation(pokemonModel: pokemonModel),
-                    ),
-                  )
-                ],
-              ),
-            )
-          ],
-        ),
+                ),
+                Expanded(
+                  flex: 5,
+                  child: Padding(
+                    padding: UiHelper.getDefaultPadding(),
+                    child: PokeInformation(pokemonModel: pokemonModel),
+                  ),
+                )
+              ],
+            ),
+          )
+        ],
       ),
     );
   }

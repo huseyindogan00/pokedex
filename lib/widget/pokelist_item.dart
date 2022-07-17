@@ -7,7 +7,6 @@ import 'package:pokedex/constants/ui_helper.dart';
 import 'package:pokedex/model/pokemon_model.dart';
 import 'package:pokedex/pages/detail_page.dart';
 import 'package:pokedex/widget/poke_image_and_ball.dart';
-import 'package:pokedex/widget/pokemon_list_widget.dart';
 
 class PokeListItem extends StatelessWidget {
   PokemonModel pokemon;

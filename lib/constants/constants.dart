@@ -16,7 +16,7 @@ class Constants {
   }
 
   static TextStyle get getTypeChipTextStyle {
-    return TextStyle(color: Colors.white, fontSize: _calculateFontSize(14));
+    return TextStyle(color: Colors.white, fontSize: _calculateFontSize(18));
   }
 
   static _calculateFontSize(int size) {
